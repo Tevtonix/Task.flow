@@ -1,0 +1,114 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.taskCard {
+  @include card;
+  margin-bottom: $spacing-sm;
+  cursor: grab;
+}
+
+.taskHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-xs;
+}
+
+.dragIcon {
+  color: $color-text-hint;
+  cursor: grab;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-text-muted;
+  }
+}
+
+.taskTitle {
+  margin: 0 0 $spacing-xs;
+  flex: 1;
+  color: $color-text;
+}
+
+.taskDescription {
+  margin: 0 0 0 $spacing-md;
+  font-size: 0.9em;
+  color: $color-text-muted;
+}
+
+.taskActions {
+  margin-top: $spacing-sm;
+  display: flex;
+  gap: $spacing-xs;
+  align-items: center;
+}
+
+.actionButton {
+  @include button-base;
+}
+
+.menuWrapper {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  background: $color-card-bg;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-md;
+  z-index: 10;
+  min-width: 150px;
+  padding: $spacing-xs 0;
+}
+
+.menuItem {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: 14px;
+  text-align: left;
+  color: $color-text;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: $color-bg-hover;
+  }
+}
+
+.menuItemDanger {
+  @extend .menuItem;
+  color: $color-danger;
+
+  &:hover {
+    background: rgba($color-danger, 0.08);
+  }
+}
+
+.priorityBadge {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.priorityLow {
+  color: #27ae60;
+}
+
+.priorityMedium {
+  color: #f39c12;
+}
+
+.priorityHigh {
+  color: #e74c3c;
+}

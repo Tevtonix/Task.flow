@@ -1,0 +1,43 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.column {
+  @include column;
+  display: flex;
+  flex-direction: column;
+}
+
+.dragOver {
+  background: $color-column-drag;
+  box-shadow: $shadow-drag;
+}
+
+.columnHeader {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+}
+
+.columnTitle {
+  margin: 0;
+  color: $color-text;
+}
+
+.columnActions {
+  display: flex;
+  gap: $spacing-xs;
+}
+
+.actionButton {
+  @include button-base;
+}
+
+.empty {
+  @include empty-state;
+}
+
+.emptyHint {
+  color: $color-text-hint;
+  font-size: 14px;
+  font-style: italic;
+  margin: 0;
+}

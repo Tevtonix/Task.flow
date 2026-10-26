@@ -1,0 +1,92 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.board {
+  display: flex;
+  gap: $spacing-lg;
+  padding: $spacing-xl;
+  align-items: flex-start;
+  overflow-x: auto;
+}
+
+.addColumnButton {
+  @include dashed-button;
+  min-width: $column-width;
+}
+
+.searchWrapper {
+  display: flex;
+  justify-content: center;
+  padding: $spacing-lg $spacing-xl 0;
+}
+
+.searchInput {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px $spacing-lg;
+  border: 2px solid $color-border;
+  border-radius: $radius-md;
+  font-size: 15px;
+  background: $color-card-bg;
+  color: $color-text;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+
+  &::placeholder {
+    color: $color-text-hint;
+  }
+}
+
+.header {
+  @include flex-between;
+  padding: $spacing-lg $spacing-xl 0;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+}
+
+.headerTitle {
+  margin: 0;
+  color: $color-text;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+}
+
+.taskCounter {
+  font-size: 14px;
+  color: $color-text-muted;
+}
+
+.themeToggle {
+  background: $color-card-bg;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  cursor: pointer;
+  padding: $spacing-sm $spacing-md;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: $color-bg-hover;
+  }
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid $color-border;
+  margin: $spacing-lg $spacing-xl 0;
+}
